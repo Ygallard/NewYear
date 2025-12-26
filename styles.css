@@ -167,6 +167,7 @@ body {
     z-index: 1200;
     overflow-y: auto;
     align-content: flex-start;
+    pointer-events: auto; /* Habilita clics dentro del overlay */
 }
 
 .photo-album.mobile-visible .photo-frame {
