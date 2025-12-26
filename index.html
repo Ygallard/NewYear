@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#FFB6D9">
+    <meta name="description" content="Una página romántica de Año Nuevo para Mary">
+    <title>Feliz Año Nuevo, Mary 🎆💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Prevenir zoom no deseado en inputs en iOS */
+        input, select, textarea {
+            font-size: 16px;
+        }
+        
+        /* Mejora de rendimiento */
+        html {
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor de confeti animado -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Contenedor principal -->
+    <main class="container">
+        <!-- Sección de inicio -->
+        <section class="hero">
+            <!-- Decoraciones laterales kawaii -->
+            <div class="decoration decoration-left">✨</div>
+            <div class="decoration decoration-right">✨</div>
+
+            <!-- Álbum de fotos desordenado -->
+            <div class="photo-album">
+                <!-- Las fotos se cargarán dinámicamente aquí -->
+            </div>
+
+            <!-- Título principal -->
+            <h1 class="main-title">
+                Feliz Año Nuevo<br>
+                <span class="heart">💖</span> Mary <span class="heart">💖</span>
+            </h1>
+
+            <!-- Línea decorativa -->
+            <div class="decorative-line"></div>
+
+            <!-- Subtítulo -->
+            <p class="subtitle">Un nuevo año para seguir amándonos</p>
+
+            <!-- Fuegos artificiales decorativos -->
+            <div class="fireworks-display">
+                <span class="firework">🎆</span>
+                <span class="firework">🎇</span>
+                <span class="firework">🎆</span>
+            </div>
+
+            <!-- Botón principal -->
+            <button class="main-button" id="openLetterBtn">
+                Ábreme 💌
+            </button>
+
+            <!-- Botón álbum (solo móviles) -->
+            <button class="album-button" id="toggleAlbumBtn">
+                Ver álbum 📸
+            </button>
+        </section>
+
+        <!-- Sección de la carta (oculta inicialmente) -->
+        <section class="letter-section" id="letterSection">
+            <!-- Tarjeta de la carta -->
+            <div class="letter-card">
+                <!-- Decoraciones de esquinas -->
+                <div class="corner-decoration corner-top-left">🌸</div>
+                <div class="corner-decoration corner-top-right">🌸</div>
+                <div class="corner-decoration corner-bottom-left">🌸</div>
+                <div class="corner-decoration corner-bottom-right">🌸</div>
+
+                <!-- Contenido de la carta -->
+                <div class="letter-content">
+                    <h2 class="letter-greeting">Amorcito mío, Mary 💖</h2>
+
+                    <p class="letter-text">
+                        Un nuevo año comienza y no puedo pedir nada más bonito que empezarlo contigo.
+                        Si algo me enseñó el año que se va, es que tenerte a mi lado hace que todo valga la pena, incluso los días difíciles.
+                    </p>
+
+                    <p class="letter-text">
+                        Gracias, amorcito, por cada risa compartida, por cada abrazo que me dio calma y por cada momento en el que me hiciste sentir en casa. Contigo aprendí que el amor verdadero no es perfecto, pero sí sincero, fuerte y lleno de ternura.
+                    </p>
+
+                    <p class="letter-text">
+                        Este nuevo año quiero seguir eligiéndote todos los días.
+                        Quiero seguir soñando contigo, creciendo contigo y construyendo recuerdos que algún día miraremos con una sonrisa. Prometo cuidarte, respetarte y amarte con todo mi corazón, incluso cuando las palabras no alcancen.
+                    </p>
+
+                    <p class="letter-text">
+                        Amorcito, deseo que este año nuevo nos regale más risas que lágrimas, más sueños cumplidos que pendientes y mucho, muchísimo amor.
+                        Gracias por existir, por ser tú y por iluminar mi vida de una forma tan bonita.
+                    </p>
+
+                    <p class="letter-closing">
+                        Feliz Año Nuevo, mi amor.<br>
+                        Que este sea solo el comienzo de todo lo hermoso que nos espera.<br>
+                        Te amo hoy, mañana y siempre 💕✨
+                    </p>
+                </div>
+
+                <!-- Decoraciones de pétalos -->
+                <div class="petals">
+                    <span class="petal">🌸</span>
+                    <span class="petal">🌸</span>
+                    <span class="petal">🌸</span>
+                </div>
+            </div>
+
+            <!-- Botón para cerrar la carta -->
+            <button class="close-button" id="closeLetterBtn">✕</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Hecho con amor para Mary 💖</p>
+        <div class="footer-sparkles">✨ ✨ ✨</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
