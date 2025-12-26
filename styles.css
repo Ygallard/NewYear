@@ -134,6 +134,27 @@ body {
     object-fit: cover;
 }
 
+.album-close {
+    display: none;
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1300;
+    box-shadow: var(--shadow);
+}
+
+.album-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 /* Modo móvil (overlay) */
 .photo-album.mobile-visible {
     display: grid;
@@ -141,7 +162,7 @@ body {
     gap: 12px;
     position: fixed;
     inset: 0;
-    padding: 24px;
+    padding: 64px 24px 24px;
     background: rgba(0, 0, 0, 0.65);
     z-index: 1200;
     overflow-y: auto;
@@ -158,6 +179,10 @@ body {
     opacity: 1 !important;
     left: auto !important;
     top: auto !important;
+}
+
+.photo-album.mobile-visible .album-close {
+    display: block;
 }
 
 .photo-album.mobile-visible .photo-frame img {

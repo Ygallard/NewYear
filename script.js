@@ -5,6 +5,7 @@
 const openLetterBtn = document.getElementById('openLetterBtn');
 const closeLetterBtn = document.getElementById('closeLetterBtn');
 const toggleAlbumBtn = document.getElementById('toggleAlbumBtn');
+const closeAlbumBtn = document.getElementById('closeAlbumBtn');
 const letterSection = document.getElementById('letterSection');
 const confettiContainer = document.getElementById('confettiContainer');
 const photoAlbum = document.querySelector('.photo-album');
@@ -317,6 +318,13 @@ letterSection.addEventListener('click', function(event) {
 if (toggleAlbumBtn) {
     toggleAlbumBtn.addEventListener('click', toggleMobileAlbum, { passive: true });
 }
+    
+    if (closeAlbumBtn) {
+        closeAlbumBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            if (isAlbumOpen) toggleMobileAlbum();
+        }, { passive: true });
+    }
 
 // Cerrar álbum móvil al tocar el fondo oscuro
 photoAlbum.addEventListener('click', function(event) {
