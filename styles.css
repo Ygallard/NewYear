@@ -35,6 +35,59 @@ body {
 }
 
 /* ============================================
+   REPRODUCTOR DE AUDIO
+   ============================================ */
+
+.audio-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+}
+
+.audio-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #6B3D47);
+    border: 3px solid var(--color-gold);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(139, 79, 92, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(139, 79, 92, 0.6), 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.audio-toggle:active {
+    transform: scale(0.95);
+}
+
+.audio-toggle.paused {
+    background: linear-gradient(135deg, #6B5B4A, #8B7B5A);
+}
+
+@media (max-width: 768px) {
+    .audio-player {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .audio-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ============================================
    CONFETI ANIMADO
    ============================================ */
 

@@ -9,10 +9,71 @@ const closeAlbumBtn = document.getElementById('closeAlbumBtn');
 const letterSection = document.getElementById('letterSection');
 const confettiContainer = document.getElementById('confettiContainer');
 const photoAlbum = document.querySelector('.photo-album');
+const bgMusic = document.getElementById('bgMusic');
+const audioToggle = document.getElementById('audioToggle');
 
 // Variable para evitar múltiples clics rápidos
 let isAnimating = false;
 let isAlbumOpen = false;
+
+// ============================================
+// REPRODUCTOR DE MÚSICA
+// ============================================
+
+/**
+ * Intenta reproducir la música de fondo con volumen bajo
+ */
+function initAudio() {
+    if (bgMusic) {
+        bgMusic.volume = 0.3; // Volumen al 30%
+        
+        // Intentar reproducir automáticamente
+        const playPromise = bgMusic.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Reproducción exitosa
+                audioToggle.textContent = '🔊';
+                audioToggle.classList.remove('paused');
+            }).catch((error) => {
+                // Reproducción bloqueada por el navegador
+                console.log('Reproducción automática bloqueada:', error);
+                audioToggle.textContent = '🔇';
+                audioToggle.classList.add('paused');
+            });
+        }
+    }
+}
+
+/**
+ * Alterna entre reproducir y pausar la música
+ */
+function toggleAudio() {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        audioToggle.textContent = '🔊';
+        audioToggle.classList.remove('paused');
+    } else {
+        bgMusic.pause();
+        audioToggle.textContent = '🔇';
+        audioToggle.classList.add('paused');
+    }
+}
+
+// Event listener para el botón de audio
+if (audioToggle) {
+    audioToggle.addEventListener('click', toggleAudio);
+}
+
+// Iniciar audio cuando la página cargue
+window.addEventListener('load', initAudio);
+
+// También intentar reproducir cuando el usuario interactúe con la página
+document.addEventListener('click', function initOnInteraction() {
+    if (bgMusic && bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+    }
+}, { once: true });
 
 // ============================================
 // CARGA DE FOTOS DEL ÁLBUM
@@ -36,7 +97,7 @@ function loadPhotoAlbum() {
         'IMG_20250725_174633.jpg',
         'IMG_20250723_113705.jpg',
         'IMG-20250803-WA0014.jpeg',
-        'IMG-20250803-WA0014 (1).jpeg'
+        'f5b28b00-bde8-44a1-93b3-29080802ec9c.jfif'
     ];
     
     // Dimensiones variadas para las fotos (efecto más natural)
@@ -106,24 +167,24 @@ function generateRandomPositions(count) {
     const positions = [];
     const half = Math.ceil(count / 2);
     
-    // Primera mitad - lado IZQUIERDO
+    // Primera mitad - lado IZQUIERDO (más centrado)
     for (let i = 0; i < half && i < count; i++) {
-        const baseLeft = Math.random() * 16; // 0-16% (lado izquierdo)
+        const baseLeft = Math.random() * 35; // 0-35% (más distribuido)
         const baseTop = (i / half) * 80 + Math.random() * 15 - 7.5;
         
         positions.push({
-            left: Math.max(0, Math.min(16, baseLeft)),
+            left: Math.max(0, Math.min(35, baseLeft)),
             top: Math.max(15, Math.min(85, baseTop))
         });
     }
     
-    // Segunda mitad - lado DERECHO
+    // Segunda mitad - lado DERECHO (más centrado)
     for (let i = half; i < count; i++) {
-        const baseLeft = 84 + Math.random() * 16; // 84-100% (lado derecho)
+        const baseLeft = 65 + Math.random() * 35; // 65-100% (más distribuido)
         const baseTop = ((i - half) / (count - half)) * 80 + Math.random() * 15 - 7.5;
         
         positions.push({
-            left: Math.max(84, Math.min(100, baseLeft)),
+            left: Math.max(65, Math.min(100, baseLeft)),
             top: Math.max(15, Math.min(85, baseTop))
         });
     }
