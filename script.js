@@ -68,11 +68,25 @@ if (audioToggle) {
 // Iniciar audio cuando la página cargue
 window.addEventListener('load', initAudio);
 
-// También intentar reproducir cuando el usuario interactúe con la página
-document.addEventListener('click', function initOnInteraction() {
+// Intentar reproducir con cualquier interacción del usuario (importante para móviles)
+const startAudioOnInteraction = () => {
     if (bgMusic && bgMusic.paused) {
-        bgMusic.play().catch(() => {});
+        bgMusic.play().then(() => {
+            audioToggle.textContent = '🔊';
+            audioToggle.classList.remove('paused');
+        }).catch(() => {});
     }
+};
+
+// Múltiples eventos para asegurar que funcione en móviles
+document.addEventListener('click', startAudioOnInteraction, { once: true });
+document.addEventListener('touchstart', startAudioOnInteraction, { once: true });
+document.addEventListener('touchend', startAudioOnInteraction, { once: true });
+
+// También cuando se abre la carta
+if (openLetterBtn) {
+    openLetterBtn.addEventListener('click', startAudioOnInteraction, { once: true });
+}
 }, { once: true });
 
 // ============================================
