@@ -87,7 +87,6 @@ document.addEventListener('touchend', startAudioOnInteraction, { once: true });
 if (openLetterBtn) {
     openLetterBtn.addEventListener('click', startAudioOnInteraction, { once: true });
 }
-}, { once: true });
 
 // ============================================
 // CARGA DE FOTOS DEL ÁLBUM
